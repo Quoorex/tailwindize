@@ -1,2 +1,3 @@
-# tailwindize
-Instantly turn any color into a Tailwind one
+# Tailwindize
+
+> Instantly turn any color into a Tailwind one

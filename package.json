@@ -1,0 +1,29 @@
+{
+  "name": "tailwindize",
+  "version": "1.0.0",
+  "description": "Instantly turn any color into a Tailwind one",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "parcel watch src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Quoorex/tailwindize.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Quoorex/tailwindize/issues"
+  },
+  "homepage": "https://github.com/Quoorex/tailwindize#readme",
+  "dependencies": {
+    "autoprefixer": "^10.2.4",
+    "nearest-color": "^0.4.4",
+    "parcel-bundler": "^1.12.4",
+    "postcss": "^8.2.6",
+    "tailwindcss": "^2.0.3"
+  }
+}
