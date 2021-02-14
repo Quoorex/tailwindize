@@ -10,6 +10,7 @@ module.exports = {
   buildOptions: {
     baseUrl: "",
   },
+  plugins: ["@snowpack/plugin-postcss"],
   presets: [
     [
       "@babel/preset-env",
