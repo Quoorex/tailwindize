@@ -1,12 +1,11 @@
 {
   "name": "tailwindize",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Instantly turn any color into a Tailwind one",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "parcel watch src/index.html",
-    "build": "parcel build src/index.html"
+    "dev": "NODE_ENV=development snowpack dev",
+    "build": "NODE_ENV=production snowpack build"
   },
   "repository": {
     "type": "git",
@@ -20,10 +19,16 @@
   },
   "homepage": "https://github.com/Quoorex/tailwindize#readme",
   "dependencies": {
+    "@babel/preset-env": "^7.12.16",
     "autoprefixer": "^10.2.4",
     "nearest-color": "^0.4.4",
-    "parcel-bundler": "^1.12.4",
     "postcss": "^8.2.6",
+    "postcss-preset-env": "^6.7.0",
     "tailwindcss": "^2.0.3"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.1.3",
+    "postcss-cli": "^8.3.1",
+    "snowpack": "^3.0.11"
   }
 }
