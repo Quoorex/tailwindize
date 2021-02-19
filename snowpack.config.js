@@ -10,6 +10,10 @@ module.exports = {
   buildOptions: {
     baseUrl: "",
   },
+  packageOptions: {
+    // Use the Skypack CDN.
+    source: "remote",
+  },
   plugins: ["@snowpack/plugin-postcss", "@snowpack/plugin-optimize"],
   presets: [
     [
