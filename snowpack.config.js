@@ -15,15 +15,4 @@ module.exports = {
     source: "remote",
   },
   plugins: ["@snowpack/plugin-postcss", "@snowpack/plugin-optimize"],
-  presets: [
-    [
-      "@babel/preset-env",
-      {
-        targets: {
-          esmodules: true,
-        },
-        modules: false,
-      },
-    ],
-  ],
 };

@@ -1,10 +1,10 @@
 import Pickr from "@simonwep/pickr";
-import "@simonwep/pickr/dist/themes/nano.min.css";
+import "@simonwep/pickr/dist/themes/classic.min.css";
 
 export function initColorPicker() {
   return Pickr.create({
     el: ".color-picker",
-    theme: "nano",
+    theme: "classic",
     swatches: [],
     closeOnScroll: true,
     components: {
@@ -15,6 +15,8 @@ export function initColorPicker() {
       interaction: {
         hex: true,
         rgba: true,
+        hsla: true,
+        hsva: true,
         input: true,
         save: true,
       },
