@@ -1,5 +1,6 @@
 # Snowpack
-build/*
+build
+.snowpack
 
 # Logs
 logs
