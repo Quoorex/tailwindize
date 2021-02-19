@@ -1,3 +1,4 @@
+import { initColorPicker } from "./colorPicker";
 import { tailwindColors } from "./tailwindColors";
 import nearestColorLib from "nearest-color";
 const nearestColor = nearestColorLib.from(tailwindColors);
@@ -27,16 +28,17 @@ function changeColor(tailwindColor) {
 }
 
 function main() {
-  // Farbe aus ColorPicker auslesen
-  var theInput = document.getElementById("kb_selected_color");
-  var theColor = theInput.value;
-  theInput.addEventListener("input", function () {
-    // Farcode (Hex) schreiben
-    document.getElementById("hex").innerHTML = theInput.value;
-    // Farbvariable schreiben
-    document.documentElement.style.setProperty("--kb-color", theInput.value);
+  const colorPicker = initColorPicker();
+  // Wait for color changes.
+  colorPicker.on("save", function () {
+    // Retrieve the color from the color picker.
+    const color = colorPicker.getColor().toHEXA().toString();
 
-    let tailwindColor = nearestColor(theInput.value);
+    // Output the hex value.
+    document.getElementById("hex").innerHTML = color;
+
+    // Get the nearest tailwind color and output it.
+    let tailwindColor = nearestColor(color);
     changeColor(tailwindColor.value);
     document.getElementById("color_name").innerHTML = tailwindColor.name;
   });
