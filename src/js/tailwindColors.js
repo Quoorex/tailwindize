@@ -1,7 +1,7 @@
 // Borrowed from Zhigang Fang
 // https://github.com/zhigang1992/nearestTailwindColor/blob/master/index.js
 
-import colors from "tailwindcss/colors";
+import colors from "https://cdn.skypack.dev/tailwindcss/colors";
 const tailwindColors = {};
 
 for (let colorsKey in colors) {

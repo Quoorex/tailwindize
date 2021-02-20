@@ -1,5 +1,4 @@
-import Pickr from "@simonwep/pickr";
-import "@simonwep/pickr/dist/themes/classic.min.css";
+import Pickr from "https://cdn.skypack.dev/@simonwep/pickr";
 
 export function initColorPicker() {
   return Pickr.create({

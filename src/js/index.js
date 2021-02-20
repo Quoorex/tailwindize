@@ -1,6 +1,6 @@
-import { initColorPicker } from "./colorPicker";
-import { tailwindColors } from "./tailwindColors";
-import nearestColorLib from "nearest-color";
+import { initColorPicker } from "./colorPicker.js";
+import { tailwindColors } from "./tailwindColors.js";
+import nearestColorLib from "https://cdn.skypack.dev/nearest-color";
 const nearestColor = nearestColorLib.from(tailwindColors);
 
 function changeSVGColor(color) {
