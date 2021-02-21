@@ -1,10 +1,8 @@
-import alpinejs from "https://cdn.skypack.dev/alpinejs";
-
 import nearestColorLib from "https://cdn.skypack.dev/nearest-color";
 const nearestColor = nearestColorLib.from(tailwindColors);
 
 import { initColorPicker } from "./colorPicker.js";
-import { tailwindColors } from "./tailwindColors.js";
+import { tailwindColors, nonDefaultColorAlert } from "./tailwindColors.js";
 
 function changeSVGColor(color) {
   var svg = document.getElementById("hero-svg").contentDocument;
@@ -24,11 +22,11 @@ function changeColor(tailwindColor) {
   // Change the color of all preview elements.
   for (const elementID of elementIDs) {
     var element = document.getElementById(elementID);
-    element.style.backgroundColor = tailwindColor;
+    element.style.backgroundColor = tailwindColor.value;
   }
-  changeSVGColor(tailwindColor);
-  // TODO: Alert when using non-default Tailwind colors
-  // Implement this using AlpineJS
+  changeSVGColor(tailwindColor.value);
+  // Alert when using non-default Tailwind colors
+  nonDefaultColorAlert(tailwindColor.name);
 }
 
 function main() {
@@ -45,7 +43,7 @@ function main() {
 
     // Get the nearest tailwind color and output it.
     let tailwindColor = nearestColor(color);
-    changeColor(tailwindColor.value);
+    changeColor(tailwindColor);
     document.getElementById("color_name").innerHTML = tailwindColor.name;
   });
 }

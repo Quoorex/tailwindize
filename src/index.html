@@ -12,6 +12,12 @@
       type="text/css"
       href="https://cdn.skypack.dev/@simonwep/pickr/dist/themes/classic.min.css"
     />
+    <!--syntax highlighting-->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.skypack.dev/highlight.js/styles/default.css"
+    />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content="Tailwindize" />
@@ -19,6 +25,7 @@
   </head>
 
   <body>
+    <!--TODO: Add an explanation text at the top of the page-->
     <h1 class="p-5 text-4xl">Tailwindize</h1>
 
     <div class="flex justify-center">
@@ -35,6 +42,19 @@
         <span id="color_name">white</span>
       </form>
     </div>
+
+    <!-- Show instructions if the color is not part of the default color palette -->
+    <section id="non-default-color-section" style="display: none">
+      <h2>Non-default Color</h2>
+      <p>
+        The color is not included in the default Tailwind color palette and has
+        to be manually enabled in your tailwind.config.js.
+      </p>
+      <div class="bg-gray-400 border-solid border-gray-100">
+        <!-- Codeblock will automatically be filled with generated config previews -->
+        <pre><code id="config-preview" class="language-javascript"></code></pre>
+      </div>
+    </section>
 
     <!-- Element previews -->
     <section class="text-gray-700 body-font">
@@ -71,7 +91,7 @@
           <!-- Alert -->
           <div class="items-center px-8 py-6 mt-auto lg:w-1/3 md:w-full">
             <div
-              class="flex w-full max-w-sm bg-white rounded-lg dark:bg-gray-800 shadow"
+              class="flex w-full max-w-sm bg-white rounded-lg shadow dark:bg-gray-800"
             >
               <div
                 class="flex items-center justify-center w-12 bg-green-500"
@@ -206,6 +226,8 @@
         </div>
       </div>
     </section>
+
+    <!--TODO: Create a footer with links to quoorex.com and browser color picker addons (https://addons.mozilla.org/de/firefox/addon/colorzilla/) -->
 
     <script type="module" src="./js/index.js"></script>
   </body>
