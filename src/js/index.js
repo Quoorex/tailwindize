@@ -1,7 +1,10 @@
-import { initColorPicker } from "./colorPicker.js";
-import { tailwindColors } from "./tailwindColors.js";
+import alpinejs from "https://cdn.skypack.dev/alpinejs";
+
 import nearestColorLib from "https://cdn.skypack.dev/nearest-color";
 const nearestColor = nearestColorLib.from(tailwindColors);
+
+import { initColorPicker } from "./colorPicker.js";
+import { tailwindColors } from "./tailwindColors.js";
 
 function changeSVGColor(color) {
   var svg = document.getElementById("hero-svg").contentDocument;
@@ -25,14 +28,17 @@ function changeColor(tailwindColor) {
   }
   changeSVGColor(tailwindColor);
   // TODO: Alert when using non-default Tailwind colors
+  // Implement this using AlpineJS
 }
 
 function main() {
   const colorPicker = initColorPicker();
   // Wait for color changes.
-  colorPicker.on("save", function () {
+  colorPicker.on("save", function (color) {
+    // Close the color picker.
+    colorPicker.hide();
     // Retrieve the color from the color picker.
-    const color = colorPicker.getColor().toHEXA().toString();
+    color = color.toHEXA().toString();
 
     // Output the hex value.
     document.getElementById("hex").innerHTML = color;
