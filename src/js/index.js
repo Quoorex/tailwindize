@@ -2,7 +2,11 @@ import nearestColorLib from "https://cdn.skypack.dev/nearest-color";
 const nearestColor = nearestColorLib.from(tailwindColors);
 
 import { initColorPicker } from "./colorPicker.js";
-import { tailwindColors, nonDefaultColorAlert } from "./tailwindColors.js";
+import {
+  tailwindColors,
+  nonDefaultColorAlert,
+  getColorDisplayName,
+} from "./tailwindColors.js";
 
 function changeSVGColor(color) {
   var svg = document.getElementById("hero-svg").contentDocument;
@@ -41,10 +45,13 @@ function main() {
     // Output the hex value.
     document.getElementById("hex").innerHTML = color;
 
-    // Get the nearest tailwind color and output it.
+    // Get the nearest tailwind color
     let tailwindColor = nearestColor(color);
     changeColor(tailwindColor);
-    document.getElementById("color_name").innerHTML = tailwindColor.name;
+    // Display it
+    document.getElementById("color-name").innerHTML = getColorDisplayName(
+      tailwindColor.name
+    );
   });
 }
 

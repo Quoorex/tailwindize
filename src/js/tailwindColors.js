@@ -3,6 +3,28 @@ import hljs from "https://cdn.skypack.dev/highlight.js/lib/core";
 import javascript from "https://cdn.skypack.dev/highlight.js/lib/languages/javascript";
 hljs.registerLanguage("javascript", javascript);
 
+// Source: https://github.com/edjw/find-nearest-tailwind-colour/blob/master/src/components/tailwindResult.svelte
+
+const defaultTailwindColors = [
+  "black",
+  "white",
+  "coolGray", // Aliased to gray
+  "red",
+  "amber", // Aliased to yellow
+  "emerald", // Aliased to green
+  "blue",
+  "indigo",
+  "violet", // Aliased to purple
+  "pink",
+];
+
+const aliasedAwayColors = {
+  coolGray: "gray",
+  amber: "yellow",
+  emerald: "green",
+  violet: "purple",
+};
+
 // Borrowed from Zhigang Fang
 // https://github.com/zhigang1992/nearestTailwindColor/blob/master/index.js
 
@@ -20,40 +42,31 @@ for (let colorsKey in colors) {
   }
 }
 
-// Source: https://github.com/edjw/find-nearest-tailwind-colour/blob/master/src/components/tailwindResult.svelte
+/*
+Removes '-900' and so on from the name
+of a Tailwind color using a regular expression.
+@param {String} tailwindColorName
+*/
+function removeColorShade(tailwindColorName) {
+  return tailwindColorName.replace(/-[0-9]*/, "");
+}
 
-const defaultTailwindColors = [
-  "black",
-  "white",
-  "coolGray", // Aliased to gray
-  "red",
-  "amber", // Aliased to yellow
-  "emerald", // Aliased to green
-  "blue",
-  "indigo",
-  "violet", // Aliased to purple
-  "pink",
-];
-
-const defaultTailwindAliases = {
-  black: "black",
-  white: "white",
-  gray: "coolGray", // aliased away
-  red: "red",
-  yellow: "amber", // aliased away
-  green: "emerald", // aliased away
-  blue: "blue",
-  indigo: "indigo",
-  purple: "violet", // aliased away
-  pink: "pink",
-};
-
-const aliasedAwayColors = {
-  coolGray: "gray",
-  amber: "yellow",
-  emerald: "green",
-  violet: "purple",
-};
+/*
+Returns a string used for displaying the color name.
+This includes additional hints regarding default aliases.
+@param {String} tailwindColorName
+*/
+function getColorDisplayName(tailwindColorName) {
+  // TODO: Also handle colors like 'gray' or 'yellow'
+  // which are by default just aliases of different colors
+  const noShadeColorName = removeColorShade(tailwindColorName);
+  if (aliasedAwayColors.hasOwnProperty(noShadeColorName)) {
+    const aliasColor = aliasedAwayColors[noShadeColorName];
+    return `${tailwindColorName} (aliased to '${aliasColor}' by default)`;
+  } else {
+    return tailwindColorName;
+  }
+}
 
 /*
 Checks if the color is already included
@@ -62,22 +75,16 @@ If not, a text will be displayed on the site.
 @param {String} tailwindColorName
 */
 function nonDefaultColorAlert(tailwindColorName) {
-  // Remove the shade from the color name
-  // (indigo-900 -> indigo)
-  // Ignore colors such as 'black' or 'white' -> no '-' present
-  if (tailwindColorName.includes("-")) {
-    tailwindColorName = tailwindColorName.slice(0, -4);
-  }
+  tailwindColorName = removeColorShade(tailwindColorName);
 
   const alertSection = document.getElementById("non-default-color-section");
+  const configPreview = document.getElementById("config-preview");
+  const configPreviewText = document.getElementById("config-preview-text");
 
   if (defaultTailwindColors.includes(tailwindColorName) === false) {
-    // TODO: Handle colors like gray and yellow, which are by default only aliases
-
-    // Insert the config preview
-    document.getElementById(
-      "config-preview"
-    ).innerText = generateTailwindConfig(tailwindColorName);
+    // Generate and insert the config preview data
+    configPreviewText.innerText = generateConfigDescription(tailwindColorName);
+    configPreview.innerText = generateTailwindConfig(tailwindColorName);
     // Highlight the code
     hljs.highlightAll();
 
@@ -90,8 +97,19 @@ function nonDefaultColorAlert(tailwindColorName) {
 }
 
 /*
+Generates the text describing the generated
+example config file.
+@param {String} tailwindColorName
+*/
+function generateConfigDescription(tailwindColorName) {
+  return `The color ${tailwindColorName} is not included in the default Tailwind color palette and has
+  to be manually enabled in your tailwind.config.js.`;
+}
+
+/*
 Generates an example Tailwind config file
 for including a custom color.
+@param {String} tailwindColorName
 */
 function generateTailwindConfig(tailwindColorName) {
   return `const colors = require("tailwindcss/colors");
@@ -106,4 +124,4 @@ module.exports = {
 };`;
 }
 
-export { tailwindColors, nonDefaultColorAlert };
+export { tailwindColors, nonDefaultColorAlert, getColorDisplayName };

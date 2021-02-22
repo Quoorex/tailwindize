@@ -39,17 +39,15 @@
         <button class="color-picker"></button>
 
         <span id="hex">(#000000)</span>
-        <span id="color_name">white</span>
+        <span id="color-name">white</span>
       </form>
     </div>
 
     <!-- Show instructions if the color is not part of the default color palette -->
     <section id="non-default-color-section" style="display: none">
       <h2>Non-default Color</h2>
-      <p>
-        The color is not included in the default Tailwind color palette and has
-        to be manually enabled in your tailwind.config.js.
-      </p>
+      <!-- Text will be auto-generated -->
+      <p id="config-preview-text"></p>
       <div class="bg-gray-400 border-solid border-gray-100">
         <!-- Codeblock will automatically be filled with generated config previews -->
         <pre><code id="config-preview" class="language-javascript"></code></pre>
