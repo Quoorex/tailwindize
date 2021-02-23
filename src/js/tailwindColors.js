@@ -57,12 +57,13 @@ This includes additional hints regarding default aliases.
 @param {String} tailwindColorName
 */
 function getColorDisplayName(tailwindColorName) {
-  // TODO: Also handle colors like 'gray' or 'yellow'
-  // which are by default just aliases of different colors
+  // TODO: Present color hints in a separate text box
   const noShadeColorName = removeColorShade(tailwindColorName);
   if (aliasedAwayColors.hasOwnProperty(noShadeColorName)) {
     const aliasColor = aliasedAwayColors[noShadeColorName];
     return `${tailwindColorName} (aliased to '${aliasColor}' by default)`;
+  } else if (Object.values(aliasedAwayColors).includes(noShadeColorName)) {
+    return `${tailwindColorName} (not the same as the default color of the same name)`;
   } else {
     return tailwindColorName;
   }
