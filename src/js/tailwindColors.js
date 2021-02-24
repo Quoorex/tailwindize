@@ -18,6 +18,13 @@ const defaultTailwindColors = [
   "pink",
 ];
 
+const defaultAliases = {
+  gray: "coolGray",
+  yellow: "amber",
+  green: "emerald",
+  purple: "violet",
+};
+
 const aliasedAwayColors = {
   coolGray: "gray",
   amber: "yellow",
@@ -53,18 +60,28 @@ function removeColorShade(tailwindColorName) {
 
 /*
 Returns a string used for displaying the color name.
-This includes additional hints regarding default aliases.
+Also outputs additional hints regarding default aliases.
 @param {String} tailwindColorName
 */
 function getColorDisplayName(tailwindColorName) {
-  // TODO: Present color hints in a separate text box
+  const aliasNoticeSection = document.getElementById("alias-notice-section");
+  const aliasNoticeText = document.getElementById("alias-notice-text");
   const noShadeColorName = removeColorShade(tailwindColorName);
+
+  // Check for colors/aliases with confusing names.
   if (aliasedAwayColors.hasOwnProperty(noShadeColorName)) {
-    const aliasColor = aliasedAwayColors[noShadeColorName];
-    return `${tailwindColorName} (aliased to '${aliasColor}' by default)`;
-  } else if (Object.values(aliasedAwayColors).includes(noShadeColorName)) {
-    return `${tailwindColorName} (not the same as the default color of the same name)`;
+    aliasNoticeSection.style.display = "block";
+    aliasNoticeText.innerText = `The default configuration of Tailwind uses '${aliasedAwayColors[noShadeColorName]}' as an alias of the color '${noShadeColorName}'.
+    When you use the color '${aliasedAwayColors[noShadeColorName]}' you actually use '${noShadeColorName}.'`;
+    return tailwindColorName;
+  } else if (defaultAliases.hasOwnProperty(noShadeColorName)) {
+    aliasNoticeSection.style.display = "block";
+    aliasNoticeText.innerText = `The default configuration of Tailwind uses '${noShadeColorName}' as an alias of the color '${defaultAliases[noShadeColorName]}'.
+    When you use the color '${noShadeColorName}' you actually use '${defaultAliases[noShadeColorName]}'.
+    You have to edit your configuration file to change that behaviour.`;
+    return tailwindColorName;
   } else {
+    aliasNoticeSection.style.display = "none";
     return tailwindColorName;
   }
 }
