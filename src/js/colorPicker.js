@@ -5,7 +5,6 @@ export function initColorPicker() {
     el: ".color-picker",
     theme: "classic",
     swatches: [],
-    closeOnScroll: true,
     components: {
       // Main components
       preview: true,
