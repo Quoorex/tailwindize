@@ -1,3 +1,7 @@
+// Icons
+import featherIcons from "https://cdn.skypack.dev/feather-icons";
+featherIcons.replace();
+
 import nearestColorLib from "https://cdn.skypack.dev/nearest-color";
 const nearestColor = nearestColorLib.from(tailwindColors);
 
@@ -42,9 +46,6 @@ function main() {
     // Retrieve the color from the color picker.
     color = color.toHEXA().toString();
 
-    // Output the hex value.
-    document.getElementById("hex").innerHTML = color;
-
     // Get the nearest tailwind color
     let tailwindColor = nearestColor(color);
     changeColor(tailwindColor);
@@ -52,6 +53,8 @@ function main() {
     document.getElementById("color-name").innerHTML = getColorDisplayName(
       tailwindColor.name
     );
+    // Output the hex value.
+    document.getElementById("tailwind-hex").innerText = tailwindColor.value;
   });
 }
 

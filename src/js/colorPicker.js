@@ -20,5 +20,6 @@ export function initColorPicker() {
         save: true,
       },
     },
+    default: "#FFFFFF",
   });
 }

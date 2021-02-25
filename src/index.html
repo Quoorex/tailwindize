@@ -24,37 +24,61 @@
     <title>Tailwindize</title>
   </head>
 
-  <body>
+  <body class="mx-auto max-w-7xl">
     <!--TODO: Add an explanation text at the top of the page-->
-    <h1 class="p-5 text-4xl">Tailwindize</h1>
 
-    <div class="flex justify-center">
-      <div class="flex flex-col items-center max-w-sm mt-5">
+    <!--Header-->
+    <div class="flex justify-between">
+      <div class="flex">
+        <h1 class="m-5 text-4xl font-bold text-blue-400">Tailwindize</h1>
+      </div>
+      <div class="flex text-gray-400">
+        <a class="m-5 my-auto" href="https://quoorex.com/">Made by Quoorex</a>
+      </div>
+    </div>
+    <hr />
+
+    <div class="flex justify-center mt-20">
+      <div class="flex my-auto mr-20">
         <label
-          class="px-8 py-3 mt-4 font-semibold text-white bg-green-500 border rounded-lg lg:inline-flex lg:mt-px"
+          class="flex flex-col items-center px-5 py-3 font-semibold text-white bg-blue-500 border rounded-xl"
         >
-          Choose a Color
+          <p class="text-xl">Choose a Color</p>
+          <button class="color-picker"></button>
         </label>
-
-        <button class="color-picker"></button>
-
-        <span id="hex">(#000000)</span>
-        <span id="color-name">white</span>
+      </div>
+      <div class="flex flex-col px-20 py-5 bg-gray-100 rounded-xl">
+        <div class="flex">
+          <span id="color-name" class="text-lg text-blue-400"> white </span>
+          <!-- TODO: copy to clipboard button -->
+          <i class="ml-2 text-gray-600" data-feather="copy"></i>
+        </div>
+        <div class="flex">
+          <span id="tailwind-hex" class="text-gray-500">#FFFFFF</span>
+        </div>
       </div>
     </div>
 
     <!-- Alias conflict alert section -->
-    <section id="alias-notice-section" style="display: none">
+    <section
+      id="alias-notice-section"
+      class="max-w-xl p-5 mx-auto mt-10 bg-gray-100 rounded-xl"
+      style="display: none"
+    >
       <h2 class="text-xl">A Note about Aliases</h2>
       <span id="alias-notice-text"></span>
     </section>
 
     <!-- Show instructions if the color is not part of the default color palette -->
-    <section id="non-default-color-section" class="mt-10" style="display: none">
+    <section
+      id="non-default-color-section"
+      class="max-w-2xl p-5 mx-auto mt-10 bg-gray-100 rounded-xl"
+      style="display: none"
+    >
       <h2 class="text-xl">Non-default Color</h2>
       <!-- Text will be auto-generated -->
       <span id="config-preview-text"></span>
-      <div class="bg-gray-400 border-solid border-gray-100">
+      <div class="bg-gray-400 border-gray-100 border-solid">
         <!-- Codeblock will automatically be filled with generated config previews -->
         <pre><code id="config-preview" class="language-javascript"></code></pre>
       </div>
@@ -62,15 +86,17 @@
 
     <!-- Element previews -->
     <section class="text-gray-700 body-font">
-      <div class="container px-8 mx-auto py-36 lg:px-4">
-        <h2 class="underline">Check out these awesome element previews:</h2>
+      <div class="container px-8 mx-auto my-20 lg:px-4">
+        <h2 class="text-2xl text-center">
+          Check out these awesome element previews
+        </h2>
         <div class="flex flex-wrap items-center">
           <!-- Progress Bar -->
           <div class="px-8 py-6 mt-auto lg:w-1/3 md:w-full">
             <div class="block p-4 mx-auto mt-4 bg-white rounded-lg">
               <div>
                 <span
-                  class="inline-block px-2 py-1 text-xs font-light text-white uppercase bg-green-500 rounded-full"
+                  class="inline-block px-2 py-1 text-xs font-light text-white uppercase bg-blue-500 rounded-full"
                   id="preview-progress-label"
                 >
                   Task in progress
@@ -78,7 +104,7 @@
               </div>
               <div class="w-full h-4 mt-3 bg-gray-400 rounded-full">
                 <div
-                  class="w-3/4 h-full text-xs text-center text-white bg-green-500 rounded-full"
+                  class="w-3/4 h-full text-xs text-center text-white bg-blue-500 rounded-full"
                   id="preview-progress-status"
                 >
                   75%
@@ -98,7 +124,7 @@
               class="flex w-full max-w-sm bg-white rounded-lg shadow dark:bg-gray-800"
             >
               <div
-                class="flex items-center justify-center w-12 bg-green-500"
+                class="flex items-center justify-center w-12 bg-blue-500"
                 id="preview-alert"
               >
                 <svg
@@ -153,7 +179,7 @@
                 </div>
                 <button
                   type="button"
-                  class="flex items-center justify-center w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-green-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
+                  class="flex items-center justify-center w-full px-4 py-2 text-base font-semibold text-center text-white transition duration-200 ease-in bg-blue-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2"
                   id="preview-user-profile"
                 >
                   See Profile
@@ -212,7 +238,7 @@
                   </p>
                   <div class="flex justify-center">
                     <button
-                      class="inline-flex px-6 py-2 text-lg text-white bg-green-500 border-0 rounded"
+                      class="inline-flex px-6 py-2 text-lg text-white bg-blue-500 border-0 rounded"
                       id="hero-preview-highlighted-button"
                     >
                       Button
@@ -231,7 +257,28 @@
       </div>
     </section>
 
-    <!--TODO: Create a footer with links to quoorex.com and browser color picker addons (https://addons.mozilla.org/de/firefox/addon/colorzilla/) -->
+    <hr class="mb-5" />
+
+    <footer class="flex justify-between mb-10">
+      <div class="flex my-auto">
+        <i class="text-red-400" data-feather="heart"></i>
+        <a class="ml-2 text-gray-700" href="https://tailwindcss.com">
+          TailwindCSS
+        </a>
+      </div>
+      <div class="flex flex-col text-gray-700">
+        <p class="text-sm">Helpful Browser Color Picker Addons</p>
+        <div class="flex flex-col text-center text-blue-300">
+          <a href="https://addons.mozilla.org/en-US/firefox/addon/colorzilla/"
+            >Firefox</a
+          >
+          <a
+            href="https://chrome.google.com/webstore/detail/quick-color-picker/medhnjegdfgmhpammlpfokdacikkdpjj"
+            >Chrome</a
+          >
+        </div>
+      </div>
+    </footer>
 
     <script type="module" src="./js/index.js"></script>
   </body>
