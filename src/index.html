@@ -25,8 +25,6 @@
   </head>
 
   <body class="mx-auto max-w-7xl">
-    <!--TODO: Add an explanation text at the top of the page-->
-
     <!--Header-->
     <div class="flex justify-between">
       <div class="flex">
@@ -42,9 +40,38 @@
         >
       </div>
     </div>
+
     <hr />
 
-    <div class="flex justify-center mt-20">
+    <div class="mx-auto mt-10 text-lg text-gray-700 max-w-prose">
+      <p>
+        Tailwindize is useful tool for anyone developing websites with
+        <a
+          class="text-blue-600 underline"
+          href="https://tailwindcss.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tailwind CSS</a
+        >. Input any color you like to get the nearest color from the Tailwind
+        CSS
+        <a
+          class="text-blue-600 underline"
+          href="https://tailwindcss.com/docs/customizing-colors"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          color palette</a
+        >.
+      </p>
+      <p>
+        This allows you to easily
+        <span class="italic text-gray-900">tailwindize</span> any existing
+        design.
+      </p>
+    </div>
+
+    <div class="flex justify-center mt-20 text-gray-700">
       <div class="flex my-auto mr-20">
         <label
           class="flex flex-col items-center px-5 py-3 font-semibold text-white bg-blue-500 border rounded-xl"
@@ -68,7 +95,7 @@
     <!-- Alias conflict alert section -->
     <section
       id="alias-notice-section"
-      class="max-w-xl p-5 mx-auto mt-10 bg-gray-100 rounded-xl"
+      class="max-w-xl p-5 mx-auto mt-10 text-gray-700 bg-gray-100 rounded-xl"
       style="display: none"
     >
       <h2 class="text-xl">A Note about Aliases</h2>
@@ -78,7 +105,7 @@
     <!-- Show instructions if the color is not part of the default color palette -->
     <section
       id="non-default-color-section"
-      class="max-w-2xl p-5 mx-auto mt-10 bg-gray-100 rounded-xl"
+      class="max-w-2xl p-5 mx-auto mt-10 text-gray-700 bg-gray-100 rounded-xl"
       style="display: none"
     >
       <h2 class="text-xl">Non-default Color</h2>
@@ -267,20 +294,20 @@
 
     <footer class="mb-10">
       <div class="flex justify-between max-w-5xl mx-auto">
-        <div class="flex my-auto">
-          <i class="text-red-400" data-feather="heart"></i>
+        <div class="flex">
+          <i class="my-auto text-red-400" data-feather="heart"></i>
           <a
-            class="ml-2 text-sm text-blue-300 hover:underline"
+            class="my-auto ml-2 text-sm text-blue-600 hover:underline"
             href="https://tailwindcss.com"
             target="_blank"
             rel="noopener noreferrer"
           >
-            TailwindCSS
+            Tailwind CSS
           </a>
         </div>
         <div class="flex flex-col text-center text-gray-700">
           <p class="text-sm">Helpful Browser Color Picker Addons</p>
-          <div class="flex flex-col text-blue-300">
+          <div class="flex flex-col text-blue-600">
             <a
               href="https://addons.mozilla.org/en-US/firefox/addon/colorzilla/"
               class="hover:underline"
