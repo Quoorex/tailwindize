@@ -71,14 +71,18 @@ function getColorDisplayName(tailwindColorName) {
   // Check for colors/aliases with confusing names.
   if (aliasedAwayColors.hasOwnProperty(noShadeColorName)) {
     aliasNoticeSection.style.display = "block";
-    aliasNoticeText.innerText = `The default configuration of Tailwind uses '${aliasedAwayColors[noShadeColorName]}' as an alias of the color '${noShadeColorName}'.
-    When you use the color '${aliasedAwayColors[noShadeColorName]}' you actually use '${noShadeColorName}.'`;
+    aliasNoticeText.innerHTML = `<p>
+    The default configuration of Tailwind uses '${aliasedAwayColors[noShadeColorName]}' as an alias of the color '${noShadeColorName}'.
+    When you use the color '${aliasedAwayColors[noShadeColorName]}' you actually use '${noShadeColorName}'.
+    </p>`;
     return tailwindColorName;
   } else if (defaultAliases.hasOwnProperty(noShadeColorName)) {
     aliasNoticeSection.style.display = "block";
-    aliasNoticeText.innerText = `The default configuration of Tailwind uses '${noShadeColorName}' as an alias of the color '${defaultAliases[noShadeColorName]}'.
+    aliasNoticeText.innerHTML = `<p>
+    The default configuration of Tailwind uses '${noShadeColorName}' as an alias of the color '${defaultAliases[noShadeColorName]}'.
     When you use the color '${noShadeColorName}' you actually use '${defaultAliases[noShadeColorName]}'.
-    You have to edit your configuration file to change that behaviour.`;
+    You have to edit your configuration file to change that behaviour.
+    </p>`;
     return tailwindColorName;
   } else {
     aliasNoticeSection.style.display = "none";
@@ -101,8 +105,8 @@ function nonDefaultColorAlert(tailwindColorName) {
 
   if (defaultTailwindColors.includes(tailwindColorName) === false) {
     // Generate and insert the config preview data
-    configPreviewText.innerText = generateConfigDescription(tailwindColorName);
-    configPreview.innerText = generateTailwindConfig(tailwindColorName);
+    configPreviewText.innerHTML = generateConfigDescription(tailwindColorName);
+    configPreview.innerHTML = generateTailwindConfig(tailwindColorName);
     // Highlight the code
     hljs.highlightAll();
 
@@ -120,8 +124,8 @@ example config file.
 @param {String} tailwindColorName
 */
 function generateConfigDescription(tailwindColorName) {
-  return `The color ${tailwindColorName} is not included in the default Tailwind color palette and has
-  to be manually enabled in your tailwind.config.js.`;
+  return `<p>The color ${tailwindColorName} is not included in the default Tailwind color palette and has
+  to be manually enabled in your tailwind.config.js.</p>`;
 }
 
 /*

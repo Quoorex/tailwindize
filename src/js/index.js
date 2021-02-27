@@ -12,6 +12,21 @@ import {
   getColorDisplayName,
 } from "./tailwindColors.js";
 
+/*
+Inits the copy button next to the
+tailwind color name.
+*/
+function initColorCopyButton(colorOutput) {
+  const copy_button = document.getElementById("tailwind-color-copy");
+  copy_button.addEventListener("click", async (event) => {
+    try {
+      await navigator.clipboard.writeText(colorOutput.innerText);
+    } catch (error) {
+      console.error("clipboard copy failed", error);
+    }
+  });
+}
+
 function changeSVGColor(color) {
   var svg = document.getElementById("hero-svg").contentDocument;
   var elements = svg.getElementsByClassName("primaryColor");
@@ -38,6 +53,10 @@ function changeColor(tailwindColor) {
 }
 
 function main() {
+  const colorOutput = document.getElementById("tailwind-color-name");
+
+  initColorCopyButton(colorOutput);
+
   const colorPicker = initColorPicker();
   // Wait for color changes.
   colorPicker.on("save", function (color) {
@@ -50,11 +69,9 @@ function main() {
     let tailwindColor = nearestColor(color);
     changeColor(tailwindColor);
     // Display it
-    document.getElementById("color-name").innerHTML = getColorDisplayName(
-      tailwindColor.name
-    );
+    colorOutput.innerHTML = getColorDisplayName(tailwindColor.name);
     // Output the hex value.
-    document.getElementById("tailwind-hex").innerText = tailwindColor.value;
+    document.getElementById("tailwind-hex").innerHTML = tailwindColor.value;
   });
 }
 
