@@ -106,13 +106,13 @@ Project Link: [https://github.com/Quoorex/tailwindize](https://github.com/Quoore
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/Quoorex/repo.svg?style=for-the-badge
-[contributors-url]: https://github.com/Quoorex/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Quoorex/repo.svg?style=for-the-badge
-[forks-url]: https://github.com/Quoorex/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/Quoorex/repo.svg?style=for-the-badge
-[stars-url]: https://github.com/Quoorex/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Quoorex/repo.svg?style=for-the-badge
-[issues-url]: https://github.com/Quoorex/repo/issues
-[license-shield]: https://img.shields.io/github/license/Quoorex/repo.svg?style=for-the-badge
-[license-url]: https://github.com/Quoorex/repo/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/Quoorex/tailwindize.svg?style=for-the-badge
+[contributors-url]: https://github.com/Quoorex/tailwindize/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Quoorex/tailwindize.svg?style=for-the-badge
+[forks-url]: https://github.com/Quoorex/tailwindize/network/members
+[stars-shield]: https://img.shields.io/github/stars/Quoorex/tailwindize.svg?style=for-the-badge
+[stars-url]: https://github.com/Quoorex/tailwindize/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Quoorex/tailwindize.svg?style=for-the-badge
+[issues-url]: https://github.com/Quoorex/tailwindize/issues
+[license-shield]: https://img.shields.io/github/license/Quoorex/tailwindize.svg?style=for-the-badge
+[license-url]: https://github.com/Quoorex/tailwindize/blob/master/LICENSE.txt
