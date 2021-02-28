@@ -115,4 +115,4 @@ Project Link: [https://github.com/Quoorex/tailwindize](https://github.com/Quoore
 [issues-shield]: https://img.shields.io/github/issues/Quoorex/tailwindize.svg?style=for-the-badge
 [issues-url]: https://github.com/Quoorex/tailwindize/issues
 [license-shield]: https://img.shields.io/github/license/Quoorex/tailwindize.svg?style=for-the-badge
-[license-url]: https://github.com/Quoorex/tailwindize/blob/master/LICENSE.txt
+[license-url]: https://github.com/Quoorex/tailwindize/blob/master/LICENSE
