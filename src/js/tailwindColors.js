@@ -1,7 +1,5 @@
 // Syntax highlighting for the config example
-import hljs from "https://cdn.skypack.dev/highlight.js/lib/core";
-import javascript from "https://cdn.skypack.dev/highlight.js/lib/languages/javascript";
-hljs.registerLanguage("javascript", javascript);
+import hljs from "https://cdn.skypack.dev/highlight.js";
 
 // Source: https://github.com/edjw/find-nearest-tailwind-colour/blob/master/src/components/tailwindResult.svelte
 
