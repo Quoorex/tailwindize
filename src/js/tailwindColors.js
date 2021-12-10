@@ -1,5 +1,5 @@
 // Syntax highlighting for the config example
-import hljs from "https://cdn.skypack.dev/highlight.js";
+import hljs from "https://cdn.skypack.dev/highlight.js@^11";
 
 // Source: https://github.com/edjw/find-nearest-tailwind-colour/blob/master/src/components/tailwindResult.svelte
 
@@ -33,7 +33,7 @@ const aliasedAwayColors = {
 // Borrowed from Zhigang Fang
 // https://github.com/zhigang1992/nearestTailwindColor/blob/master/index.js
 
-import colors from "https://cdn.skypack.dev/tailwindcss/colors";
+import colors from "https://cdn.skypack.dev/tailwindcss@^2/colors";
 const tailwindColors = {};
 
 for (let colorsKey in colors) {

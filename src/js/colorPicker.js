@@ -1,4 +1,4 @@
-import Pickr from "https://cdn.skypack.dev/@simonwep/pickr";
+import Pickr from "https://cdn.skypack.dev/@simonwep/pickr@^1";
 
 export function initColorPicker() {
   return Pickr.create({

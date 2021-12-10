@@ -1,8 +1,8 @@
 // Icons
-import featherIcons from "https://cdn.skypack.dev/feather-icons";
+import featherIcons from "https://cdn.skypack.dev/feather-icons@^4";
 featherIcons.replace();
 
-import nearestColorLib from "https://cdn.skypack.dev/nearest-color";
+import nearestColorLib from "https://cdn.skypack.dev/nearest-color@^0";
 const nearestColor = nearestColorLib.from(tailwindColors);
 
 import { initColorPicker } from "./colorPicker.js";
